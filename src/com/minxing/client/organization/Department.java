@@ -20,6 +20,8 @@ public class Department extends Organization {
 	private Long parent_dept_id = null;
 	private String path;
 	private String dept_type;
+	private String ext1;
+	private String abbreviation;
 
 	public String getNetwork_name() {
 		return network_name;
@@ -130,6 +132,8 @@ public class Department extends Organization {
 		params.put("root", this.getRoot().toString().toLowerCase());
 		params.put("dept_id", String.valueOf(this.getId()));
 		params.put("dept_type",this.getDept_type());
+		params.put("ext1", this.getExt1());
+		params.put("abbreviation",this.getAbbreviation());
 		return params;
 	}
 
@@ -144,13 +148,24 @@ public class Department extends Organization {
 
 	@Override
 	public String toString() {
-		return "Department <network_id:" + network_id + ", short_name:"
-				+ short_name + ", full_name:" + full_name + ",title:"
-				+ this.title + ",display_order:" + display_order
-				+ ", dept_code:" + dept_code + ", level:" + level
-				+ ", parent_dept_code:" + parent_dept_code + ",parent_dept_id:"
-				+ parent_dept_id + ", root=" + root + ", network_name:"
-				+ network_name + ", id=" + id + ",path="+path+">";
+		return "Department{" +
+				"network_id=" + network_id +
+				", short_name='" + short_name + '\'' +
+				", full_name='" + full_name + '\'' +
+				", display_order='" + display_order + '\'' +
+				", title='" + title + '\'' +
+				", dept_code='" + dept_code + '\'' +
+				", parent_dept_code='" + parent_dept_code + '\'' +
+				", root=" + root +
+				", network_name='" + network_name + '\'' +
+				", id=" + id +
+				", level=" + level +
+				", parent_dept_id=" + parent_dept_id +
+				", path='" + path + '\'' +
+				", dept_type='" + dept_type + '\'' +
+				", ext1='" + ext1 + '\'' +
+				", abbreviation='" + abbreviation + '\'' +
+				"} " + super.toString();
 	}
 
 	public void setParentDeptId(Long deptId) {
@@ -172,5 +187,21 @@ public class Department extends Organization {
 
 	public void setDept_type(String dept_type) {
 		this.dept_type = dept_type;
+	}
+
+	public String getExt1() {
+		return ext1;
+	}
+
+	public void setExt1(String ext1) {
+		this.ext1 = ext1;
+	}
+
+	public String getAbbreviation() {
+		return abbreviation;
+	}
+
+	public void setAbbreviation(String abbreviation) {
+		this.abbreviation = abbreviation;
 	}
 }
