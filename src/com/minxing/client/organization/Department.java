@@ -22,6 +22,8 @@ public class Department extends Organization {
 	private String dept_type;
 	private String ext1;
 	private String abbreviation;
+	//在通讯录中是否显示,默认显示
+	private boolean showContacts = true;
 
 	public String getNetwork_name() {
 		return network_name;
@@ -134,6 +136,7 @@ public class Department extends Organization {
 		params.put("dept_type",this.getDept_type());
 		params.put("ext1", this.getExt1());
 		params.put("abbreviation",this.getAbbreviation());
+		params.put("show_in_contacts",String.valueOf(this.isShowContacts()).toLowerCase());
 		return params;
 	}
 
@@ -165,6 +168,7 @@ public class Department extends Organization {
 				", dept_type='" + dept_type + '\'' +
 				", ext1='" + ext1 + '\'' +
 				", abbreviation='" + abbreviation + '\'' +
+				", showContacts=" + showContacts +
 				"} " + super.toString();
 	}
 
@@ -203,5 +207,13 @@ public class Department extends Organization {
 
 	public void setAbbreviation(String abbreviation) {
 		this.abbreviation = abbreviation;
+	}
+
+	public boolean isShowContacts() {
+		return showContacts;
+	}
+
+	public void setShowContacts(boolean showContacts) {
+		this.showContacts = showContacts;
 	}
 }
